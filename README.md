@@ -25,7 +25,7 @@ If you expect to generate all the output files using the Matlab IDE, you must cr
 setGlobalDev(0);
 global DEV_MODE
 
-Please refer to the readme.txt file to understand the tool
+Refer to the readme.txt file to understand the tool's inputs and outputs.
 
 
 ## The SWeeP Standalone Executable
