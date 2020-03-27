@@ -16,13 +16,17 @@ De Pierri, C.R., Voyceik, R., Santos de Mattos, L.G.C. et al. SWeeP: representin
 
 ## Running the matlab source
 To properly run the source code in the Matlab ID you must add all this structure to the path.
-The "core code" is separate from the support code, generated to support all the user interfaces required by the executable version.
+**Please make sure you downloaded the <a href="https://sourceforge.net/projects/spacedwordsprojection/">Projection Files</a> before you start.**
+
+There are some core functions which can be used independently to execute the specific functionalities listed above.
+
 
 By default, **when running in the Matlab IDE, SWeeP does not generate any external files.**
 
 If you expect to generate all the output files using the Matlab IDE, you must create a GLOBAL variable to set the developer mode to FALSE, as follows:
 
 setGlobalDev(0);
+
 global DEV_MODE
 
 Refer to the readme.txt file to understand the tool's inputs and outputs.
