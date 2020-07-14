@@ -59,9 +59,15 @@ RUNNING THE CONSOLE PROGRAM
 
 Run the program with the following command:
 
-SWeeP fasta_path additional_parameters
+LINUX
+sweep fasta_path additional_parameters
 
-Windows Users: As Windows allows folders names with spaces, please use PowerShell and quotes to avoid errors.
+WINDOWS - powershell
+As Windows allows folders names with spaces, please use PowerShell and quotes to avoid errors.
+./sweep 'fasta_path' additional_parameters
+
+
+IMPORTANT: As the Matlab Runtime runs in backgroung, it can take up to 1 minute for the messages on the screen to start appearing. After that point, the application will alert you at each step until all steps are completed.
 
 
 Additional input parameters
@@ -104,7 +110,7 @@ ClusteringType	Options 1 (Default - NeighborJoin) or 2 (Ward). Visualization
 DistanceMethod	euclidean (Default), spearman or cosine. This parameter will be
 				used only if the option generate_tree be true (1). Please reference 
 				our paper to learn why the Euclidean distance was chosen.
-SaveHVD			Options 0 (Default) or 1. Please change this option to 1 if
+SaveHDV			Options 0 (Default) or 1. Please change this option to 1 if
 				you intend to use MATLAB to process your data later.
 ProjMatrix		By default SWeeP uses our pre-loaded quasi Ortho-normal Projection
 				Matrix with size 160k x 600 (file with extension .SWeePproj). 
@@ -125,31 +131,31 @@ Examples
 ===========================
 
 # 1 - SWeeP with fasta folder
-SWeeP '\User\fasta_folder'
+sweep '\User\fasta_folder'
 
 # 2 - SWeeP with fasta file
-SWeeP '\User\fasta_folder\SWeeP_fasta_format.faa'
+sweep '\User\fasta_folder\SWeeP_fasta_format.faa'
 
 # 3 - SWeeP for NT
-SWeeP '\User\fasta_folder' SeqType NT
+sweep '\User\fasta_folder' SeqType NT
 
 # 4 - Change the SWeeP method
-SWeeP '\User\file.faa' SWeePMethod prime
+sweep '\User\file.faa' SWeePMethod prime
 
 # 5 - Disable the Neighbor Join/Ward Tree generation
-SWeeP '\User\fasta_folder' GenerateTree 0
+sweep '\User\fasta_folder' GenerateTree 0
 
 # 6 - Change the distance method
-SWeeP '\User\fasta_folder' DistanceMethod spearman
+sweep '\User\fasta_folder' DistanceMethod spearman
 
 # 7 - Save the HDV to disk (for MATLAB users only)
-SWeeP '\User\fasta_folder' SaveLVD 1
+sweep '\User\fasta_folder' SaveLVD 1
 
 # 8 - Choose another projection size
-SWeeP '\User\file.faa' ProjMatrix 800
+sweep '\User\file.faa' ProjMatrix 800
 
 # 9 - Inform a previous generated projection file
-SWeeP '\User\file.faa' ProjMatrix '\User\proj.SWeePproj'
+sweep '\User\file.faa' ProjMatrix '\User\proj.SWeePproj'
 
 Output files
 ===========================
@@ -179,6 +185,10 @@ updates.
 This is the phylogenetic tree file, generated using Neighbor Join or Ward clustering
 method. You can open the .tree file using tools such as (dendroscope.org),
 (itol.embl.de) or any other phylogeny tree viewer you choose.
+
+6 - distance.csv - Requires the parameter GenerateTree = 1
+Export the distance matrix used to generate the phylogenetic tree. This matrix can be
+submeted to another phylogenetic tree algorithms to generate different trees.
 
 Optional outputs
 ================

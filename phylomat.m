@@ -63,7 +63,7 @@ if tree_type==1
 else
     tree_values = linkage(dists,'ward');
 end
-message = strcat('Dumping ', {' '}, exec_name, '.tree to disk. It will be available at the folder output.');
+message = strcat('Dumping the tree to disk. It will be available at the folder output.');
 generate_log(message, 0);
 
 % Dumps the tree to disk

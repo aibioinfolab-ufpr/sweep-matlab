@@ -114,9 +114,9 @@ generate_log(' ', 3);
 % Generates the tree object and saves to disk
 tree_msg = ' ';
 tree_msg2 = ' ';
-if exec_data.gen_dists
+if (exec_data.gen_dists==1)
     tic;
-    [tree, dists] = phylomat(sldv, headers, exec_data.dist_type, exec_data.exec_name, exec_data.tree_type, exec_data.type);
+    [tree, dists] = phylomat(sldv, headers, exec_data.dist_type, exec_data.tree_type, exec_data.exec_name, exec_data.type);
     sec_time = toc;
     tot_duration = num2hms(sec_time);
     tree_msg =  '+Tree';
@@ -126,8 +126,8 @@ if exec_data.gen_dists
     generate_log(message, 0);
     generate_log(' ', 3);
 else
-    tree = "";
-    dists = "";
+    tree = '';
+    dists = '';
 end
 
 sec_time = etime(clock, init_time);

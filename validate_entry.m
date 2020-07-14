@@ -83,6 +83,12 @@ entry_data.type = type;
 
 % Check if the user wants to generate the phylogenetic tree
 gen_dists = vararginnamed(param, 'GenerateTree', 1);
+gen_dists = cast(gen_dists, 'logical');
+%whos gen_dists;
+%disp(gen_dists==0);
+%disp(gen_dists==1);
+%disp(strcmpi(gen_dists, '0'));
+%disp(strcmpi(gen_dists, '1'));
 if ~((gen_dists==0)||(gen_dists==1))
     message = 'Please inform 0 or 1 to generate the Phylogenetic Tree.';
     generate_log(message, 2);
@@ -104,6 +110,7 @@ entry_data.dist_type = dist_type;
 
 % Check which tree type should be used
 tree_type = vararginnamed(param, 'ClusteringType', 1);
+tree_type = cast(tree_type, 'int8');
 if (~(tree_type==1||tree_type==2))
     message = 'Invalid clustering method. Please inform: 1 (Ward) or 2 (SeqNeighborJoin).';
     generate_log(message, 2);
@@ -112,6 +119,7 @@ end
 entry_data.tree_type = tree_type;
 
 k_hdv = vararginnamed(param, 'SaveHDV', 0);
+k_hdv = cast(k_hdv, 'logical');
 % Check if the user wants to save the HDV file
 if ~((k_hdv==0)||(k_hdv==1))
     message = 'Please inform 0 or 1 to save the binary matrix to disk (default 0).';

@@ -15,18 +15,18 @@ global USER_PATH;
 
 comp_path = char(fullfile(USER_PATH, char(strcat(name, ext))));
 
-try
+%try
     if strcmp(ext, '.csv')
        dlmwrite(comp_path, obj, 'delimiter','\t');
     else
         S.(char(name)) = obj;
         save(comp_path, '-struct', 'S', '-v7.3');
     end
-catch ME
-    message = strcat('Unable to save the file', {' '}, char(name), char(ext), {' '}, 'to disk.', {' '}, ...
-                   'Please check the folder output permissions. Error: ', {' '}, ME.identifier);
-    generate_log(message, 2);
-    error(ME.identifier, char(message));
-end
+%catch ME
+%    message = strcat('Unable to save the file', {' '}, char(name), char(ext), {' '}, 'to disk.', {' '}, ...
+%                   'Please check the folder output permissions. Error: ', {' '}, ME.identifier);
+%    generate_log(message, 2);
+%    error(ME.identifier, char(message));
+%end
 
 end

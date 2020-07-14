@@ -191,19 +191,19 @@ if k_hdv||DEV_MODE
 end
 
 % Saves the HDV single file to disk, if required and not in DEV_MODE
-if k_hdv
-    try
+if (k_hdv==1)
+    %try
         name = strcat(exec_name, '_HDV');
         save_file(finalMat, name, '.mat');
         message = strcat('File', {' '}, name, '.mat dumped to disk.', {' '}, ...
                      'You`ll find it at the `output` folder.');
         generate_log(message, 0);
-    catch
-        message = strcat('Unable to dump the high dimension vector (HDV) file to disk.', {' '}, ...
-                     'Please check the `output` folder permissions.');
-        generate_log(message, 2);
-        error(message);
-    end
+    %catch
+    %    message = strcat('Unable to dump the high dimension vector (HDV) file to disk.', {' '}, ...
+    %                 'Please check the `output` folder permissions.');
+    %    generate_log(message, 2);
+    %    error(message);
+    %end
 end
 
 

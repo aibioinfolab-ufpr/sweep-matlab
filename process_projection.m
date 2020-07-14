@@ -45,7 +45,7 @@ else
         field_name = char(fieldnames(projMat));
         projMat = projMat.(field_name);
     catch
-        message = 'Unable to load the projection matrix. Please check if the informed path is correct.';
+        message = 'Unable to load the projection matrix. Please check if the informed path is correct. If you are working with gene/transcript sequences make sure you downloaded the default projection matrix from: https://sourceforge.net/projects/spacedwordsprojection/';
         generate_log(message, 2);
         error(message);
     end
